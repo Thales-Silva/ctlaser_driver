@@ -33,7 +33,6 @@ include_directories(
 	include
 	${catkin_INCLUDE_DIRS}
 	${Boost_INCLUDE_DIRS}
-
 )
 
 set(${PROJECT_NAME}_headers
@@ -52,7 +51,7 @@ add_library(${PROJECT_NAME}_lib
 )
 
 add_dependencies(${PROJECT_NAME}_lib
-#	${PROJECT_NAME}_EXPORTED_TARGETS
+	${${PROJECT_NAME}_EXPORTED_TARGETS}
     ${catkin_EXPORTED_TARGETS}
 )
 
