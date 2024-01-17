@@ -22,4 +22,6 @@ server will be able to assign a new ip address to you adapter.
 
 ![Firware webpage](./images/adapter-web.png)
 
-- Login with the default ```user name: root``` and ```password: dbps```. Proceed to ```Serial Ports``` in Configurations the click the according port.
+- Login with the default ```user name: root``` and ```password: dbps```. Proceed to ```Serial Ports``` in Configurations the click the according port as in the figure bellow.
+
+![Firware webpage](./images/adapter-config1.png)
