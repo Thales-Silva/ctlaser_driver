@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <arg name="node_name" default="ctlaser_driver"/>
+	<arg name="laser_ip" default="146.164.53.228"/>
+	<arg name="laser_port" default="2101"/>
+	<arg name="target_lights" default="true"/>
+	<arg name="frequency" default="10"/>
+	<arg name="required" default="true"/>
+
+    <node name="$(arg node_name)"
+	      pkg="ctlaser_driver"
+		  type="ctlaser_driver_node"
+		  output="screen"
+		  required="$(arg required)"
+		  args="_laser_ip:=$(arg laser_ip)
+		        _laser_port:=$(arg laser_port)
+				_target_lights:=$(arg target_lights)
+				_frequency:=$(arg frequency)">
+	</node>
+</launch>
+
