@@ -12,13 +12,13 @@ This document presents three steps to ensure a smooth configuration and utilizat
 
 ## 1. Install the ctlaser_driver Software.
 
-## 2. Set Basic Parameters.
+## 2. Set Basic Parameters and usage.
 
-This section provides insights into operating the `ctlaser_driver` according to your specific requirements.
+This section provides insights into operating the **ctlaser_driver** according to your specific requirements.
 Tune the settings to achieve optimal performance while reading the temperature of a given surface with Optris
 CTlaser pyrometers.
 
-In the `ctlaser_driver` package, go to the `launch` directory and open the `ctlaser_driver.launch`. Set the CT
+In the **ctlaser_driver** package, go to the `launch` directory and open the `ctlaser_driver.launch`. Set the CT
 Ethernet Adapter ip address and port (see Section 3 for more information). Optionally, set the desired temperature
 output frequency experience in working with Optris CTlaser pyrometers within the ROS framework.
 
@@ -42,7 +42,7 @@ in the `.launch` file so it gets loaded on startup, or set via rosservices later
 - ```target_lights (bool)``` : The initial lights state.
 - ```frequency (double)``` : The temperature output frequency (hz)
 - ```emissivity (double)``` : The initial emissivity (0.0 < e < 1.0)
-- ```transmissivity (double)``` : The initial transmissivity (0.0 < e < 1.0)
+- ```transmissivity (double)``` : The initial transmissivity (0.0 < t < 1.0)
 
 ## 3. Configure the TCP Server on the CT Ethernet Adapter.
 
