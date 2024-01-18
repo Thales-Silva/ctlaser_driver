@@ -36,3 +36,15 @@ port as in the figure bellow. A new tab with Port Profile Settings will be shown
 Change Profile. You will be prompted to choose one option on the Select Port Profile tab. Choose TCP Sockets as in the figure bellow.
 
 ![Firware webpage](./images/adapter-config3.png)
+
+- After choosing TCP Sockets you will be prompted to enable the desired TCP ports. The communication between the ctlaser_driver and the device is made
+using the Raw TCP port which defaults to port ```port: 2101```. As in the figure bellow, enable at least the Raw TCP and Telnet so it gets easier to check
+for communication problems using Telnet.
+
+![Firware webpage](./images/adapter-config4.png)
+
+- Another fundamental step is to configure the serial port settings in order for the adapter to be able to communicate with the serial port. In order to do so,
+still on the Serial Port Configurations - Interface tab, right bellow the Port Profile Settings you will find Basic Serial Settings. As in the figure bellow,
+set the baud rate to the same one configured on the device. The other properties can be found in pyrometer's the manual.
+
+![Firware webpage](./images/adapter-config5.png)
