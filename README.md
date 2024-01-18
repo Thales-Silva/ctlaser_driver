@@ -1,5 +1,7 @@
 # ctlaser_driver
 
+![Ctlaser Pyrometer](./images/ctlaser-pyro.png)
+
 This package serves as an interface for operating Optris CTlaser pyrometers within the ROS environment.
 Using the Digi RealPort CT Ethernet Adapter, we use a TCP Socket server/client to facilitate communication
 with the serial interface.
@@ -11,6 +13,17 @@ with the serial interface.
 This document presents three steps to ensure a smooth configuration and utilization of the provided software:
 
 ## 1. Install the ctlaser_driver Software.
+
+### 1.1. Installation
+
+Clone the repository to your preferred workspace with
+
+```bash
+cd ~/my_workspace/src
+git clone https://gitlab.com/gscar-coppe-ufrj/waam/ctlaser_driver.git
+source ~/my_workspace/devel/setup.bash
+catkin build ctlaser_driver
+```
 
 ## 2. Set Basic Parameters and usage.
 
@@ -27,22 +40,32 @@ in the `.launch` file so it gets loaded on startup, or set via rosservices later
 
 ### 2.1. Published Topics
 
-- ```/ctlaser_driver/current_temperature``` ([sensor_msgs/Temperature](https://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/Temperature.html))
+- ```/ctlaser_driver/current_temperature``` ([sensor_msgs/Temperature](https://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/Temperature.html)).
 
 ### 2.2. Services
 
-- ```/ctlaser_driver/lights_switch``` ([std_servs/SetBool](https://docs.ros.org/en/noetic/api/std_srvs/html/srv/SetBool.html))
-- ```/ctlaser_driver/set_emissivity``` (ctlaser_driver/set_float)
-- ```/ctlaser_driver/set_transmissivity``` (ctlaser_driver/set_float)
+- ```/ctlaser_driver/lights_switch``` ([std_servs/SetBool](https://docs.ros.org/en/noetic/api/std_srvs/html/srv/SetBool.html));
+- ```/ctlaser_driver/set_emissivity``` (ctlaser_driver/set_float);
+- ```/ctlaser_driver/set_transmissivity``` (ctlaser_driver/set_float).
 
 ### 2.3. Parameters
 
-- ```laser_ip (string)``` : The CT Ethernet Adapter ip address.
-- ```laser_port (int)``` : The port configured in the adapter (see Section 3).
-- ```target_lights (bool)``` : The initial lights state.
-- ```frequency (double)``` : The temperature output frequency (hz)
-- ```emissivity (double)``` : The initial emissivity (0.0 < e < 1.0)
-- ```transmissivity (double)``` : The initial transmissivity (0.0 < t < 1.0)
+- ```laser_ip (string)``` : The CT Ethernet Adapter ip address;
+- ```laser_port (int)``` : The port configured in the adapter (see Section 3);
+- ```target_lights (bool)``` : The initial lights state;
+- ```frequency (double)``` : The temperature output frequency (hz);
+- ```emissivity (double)``` : The initial emissivity (0.0 < e < 1.0);
+- ```transmissivity (double)``` : The initial transmissivity (0.0 < t < 1.0).
+
+### 2.4. Usage
+
+Just launch the node with
+
+```bash
+source ~/my_workspace/devel/setup.bash
+roslaunch ctlaser_driver ctlaser_driver.launch
+```
+
 
 ## 3. Configure the TCP Server on the CT Ethernet Adapter.
 
