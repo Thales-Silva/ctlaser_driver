@@ -17,19 +17,20 @@ CtlaserDriverNode::CtlaserDriverNode(ros::NodeHandle &nh) :
 
     bool temp_bool;
     if (!nh.getParam("/" + ros::this_node::getName() + "/target_lights", temp_bool))
-        std::cerr << "[ WARN] Could not find target_lights state in the parameter server."
-                     "Using lights on." << std::endl;
-    setLaserState(temp_bool);
+        std::cerr << "[ WARN] Could not find target_lights state in the parameter server. "
+                     "Using default." << std::endl;
+    else
+        setLaserState(temp_bool);
 
     float temp_float;
     if (!nh.getParam("/" + ros::this_node::getName() + "/emissivity", temp_float))
-        std::cerr << "[ WARN] Could not find emissivity in the parameter server."
+        std::cerr << "[ WARN] Could not find emissivity in the parameter server. "
                      "Using default." << std::endl;
     else
         setIrVariables(temp_float, CtlaserCommand::SET_EPSILON);
 
     if (!nh.getParam("/" + ros::this_node::getName() + "/transmissivity", temp_float))
-        std::cerr << "[ WARN] Could not find transmissivity in the parameter server."
+        std::cerr << "[ WARN] Could not find transmissivity in the parameter server. "
                      "Using default." << std::endl;
     else
         setIrVariables(temp_float, CtlaserCommand::SET_TRANSMISSION);
