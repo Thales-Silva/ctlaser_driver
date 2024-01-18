@@ -1,7 +1,8 @@
 # ctlaser_driver
 
 This package serves as an interface for operating Optris CTlaser pyrometers within the ROS environment.
-Using the Digi RealPort CT Ethernet Adapter, we use a TCP Socket server/client to facilitate communication with the serial interface.
+Using the Digi RealPort CT Ethernet Adapter, we use a TCP Socket server/client to facilitate communication
+with the serial interface.
 
 ### Communication Flow:
 
@@ -17,16 +18,38 @@ This section provides insights into operating the `ctlaser_driver` according to 
 Tune the settings to achieve optimal performance while reading the temperature of a given surface with Optris
 CTlaser pyrometers.
 
-By following these three steps, you'll be well-equipped to harness the full potential of the `ctlaser_driver` package, enhancing your
-experience in working with Optris CTlaser pyrometers within the ROS framework. Feel free to explore the documentation for more in-depth
-information and troubleshooting tips.
+In the `ctlaser_driver` package, go to the `launch` directory and open the `ctlaser_driver.launch`. Set the CT
+Ethernet Adapter ip address and port (see Section 3 for more information). Optionally, set the desired temperature
+output frequency experience in working with Optris CTlaser pyrometers within the ROS framework.
+
+When the pyrometer turns on, the factory default emissivity and transmissivity are set. This parameters can be included
+in the `.launch` file so it gets loaded on startup, or set via rosservices later.
+
+### 2.1. Published Topics
+
+- ```/ctlaser_driver/current_temperature ([sensor_msgs/Temperature](https://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/Temperature.html))```
+
+### 2.2. Services
+
+- ```/ctlaser_driver/lights_switch ([std_servs/SetBool](https://docs.ros.org/en/noetic/api/std_srvs/html/srv/SetBool.html))``
+- ```/ctlaser_driver/set_emissivity (ctlaser_driver/set_float)```
+- ```/ctlaser_driver/set_transmissivity (ctlaser_driver/set_float)```
+
+### 2.3. Parameters
+
+- ```laser_ip (string)``` : The CT Ethernet Adapter ip address.
+- ```laser_port (int)``` : The port configured in the adapter (see Section 3).
+- ```target_lights (bool)``` : The initial lights state.
+- ```frequency (double)``` : The temperature output frequency (hz)
+- ```emissivity (double)``` : The initial emissivity (0.0 < e < 1.0)
+- ```transmissivity (double)``` : The initial transmissivity (0.0 < e < 1.0)
 
 ## 3. Configure the TCP Server on the CT Ethernet Adapter.
 
-Plug the ethernet cable to CT Ethernet Adapter and make sure both the adapter and you computer are in the same network. The DHCP server will
-most likelly assign an ip address to your device. In case it doesn't, press the adapter reset button while it turned off, then turn it on.
-Keep the button pressed until the network lights blink in a pattern 1-5-1. The device will be reset to factory configurations and the DHCP
-server will be able to assign a new ip address to you adapter.
+Plug the ethernet cable to CT Ethernet Adapter and make sure both the adapter and you computer are in the same network.
+The DHCP server will most likelly assign an ip address to your device. In case it doesn't, press the adapter reset button
+while it turned off, then turn it on. Keep the button pressed until the network lights blink in a pattern 1-5-1. The device
+will be reset to factory configurations and the DHCP server will be able to assign a new ip address to you adapter.
 
 - Provided that after these steps the adapter's ip address is known (suppose 146.164.53.228), go your browser and access the firmware webpage
 ```http://146.164.53.228/login.htm``` as in the figure directly bellow.

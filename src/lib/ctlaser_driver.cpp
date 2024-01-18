@@ -88,7 +88,7 @@ double CtlaserDriver::calculateTemperature(unsigned char* bytes)
 
 double CtlaserDriver::calculateIrValues(unsigned char *bytes)
 {
-    return (*bytes * 256 + *(bytes + 1))/1000.0;
+    return (*bytes * 256 + *(bytes + 1)) / 1000.0;
 }
 
 void CtlaserDriver::communicate(unsigned char *in, size_t sizeof_in, unsigned char *out, size_t sizeof_out)
@@ -145,7 +145,7 @@ bool CtlaserDriver::setIrVariables(float value, CtlaserCommand cmd)
         (cmd != CtlaserCommand::SET_TRANSMISSION))
         return false;
 
-    if (value > 1.0 || value < 0.0)
+    if (value > 1.0f || value < 0.0f)
     {
         std::cerr << "[ ERROR] Emissivity must by a value from 0.0 to 1.0." << std::endl;
         return false;
