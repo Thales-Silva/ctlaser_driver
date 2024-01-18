@@ -27,13 +27,13 @@ in the `.launch` file so it gets loaded on startup, or set via rosservices later
 
 ### 2.1. Published Topics
 
-- ```/ctlaser_driver/current_temperature ([sensor_msgs/Temperature](https://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/Temperature.html))```
+- ```/ctlaser_driver/current_temperature``` ([sensor_msgs/Temperature](https://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/Temperature.html))
 
 ### 2.2. Services
 
-- ```/ctlaser_driver/lights_switch ([std_servs/SetBool](https://docs.ros.org/en/noetic/api/std_srvs/html/srv/SetBool.html))``
-- ```/ctlaser_driver/set_emissivity (ctlaser_driver/set_float)```
-- ```/ctlaser_driver/set_transmissivity (ctlaser_driver/set_float)```
+- ```/ctlaser_driver/lights_switch``` ([std_servs/SetBool](https://docs.ros.org/en/noetic/api/std_srvs/html/srv/SetBool.html))
+- ```/ctlaser_driver/set_emissivity``` (ctlaser_driver/set_float)
+- ```/ctlaser_driver/set_transmissivity``` (ctlaser_driver/set_float)
 
 ### 2.3. Parameters
 
