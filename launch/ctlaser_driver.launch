@@ -8,14 +8,14 @@
 	<arg name="required" default="true"/>
 
     <node name="$(arg node_name)"
-	      pkg="ctlaser_driver"
-		  type="ctlaser_driver_node"
-		  output="screen"
-		  required="$(arg required)"
-		  args="_laser_ip:=$(arg laser_ip)
-		        _laser_port:=$(arg laser_port)
-				_target_lights:=$(arg target_lights)
-				_frequency:=$(arg frequency)">
+	    pkg="ctlaser_driver"
+		type="ctlaser_driver_node"
+		output="screen"
+		required="$(arg required)"
+		args="_laser_ip:=$(arg laser_ip)
+		      _laser_port:=$(arg laser_port)
+			  _target_lights:=$(arg target_lights)
+			  _frequency:=$(arg frequency)">
 	</node>
 </launch>
 
