@@ -3,7 +3,7 @@
     <arg name="node_name" default="ctlaser_driver"/>
 	<arg name="laser_ip" default="146.164.53.228"/>
 	<arg name="laser_port" default="2101"/>
-	<arg name="target_lights" default="true"/>
+	<arg name="target_lights" default="false"/>
 	<arg name="frequency" default="10"/>
 	<arg name="required" default="true"/>
 

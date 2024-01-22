@@ -154,7 +154,7 @@ bool CtlaserDriver::setIrVariables(float value, CtlaserCommand cmd)
     int aux_val = int(value * 1000);
 
     /*
-     * Sending the command, where the first byte it the task
+     * Sending the command, where the first byte is the task
      * the second is the desired value and the third is the
      * checksum.
      * We are braking aux_val into two bytes to insert on the

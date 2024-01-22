@@ -33,7 +33,7 @@ CTlaser pyrometers.
 
 In the **ctlaser_driver** package, go to the `launch` directory and open the `ctlaser_driver.launch`. Set the CT
 Ethernet Adapter ip address and port (see Section 3 for more information). Optionally, set the desired temperature
-output frequency experience in working with Optris CTlaser pyrometers within the ROS framework.
+output frequency.
 
 When the pyrometer turns on, the factory default emissivity and transmissivity are set. This parameters can be included
 in the `.launch` file so it gets loaded on startup, or set via rosservices later.
@@ -100,3 +100,6 @@ still on the Serial Port Configurations - Interface tab, right bellow the Port P
 set the baud rate to the same one configured on the device. The other properties can be found in pyrometer's the manual.
 
 ![Firware webpage](./images/adapter-config5.png)
+
+## 4. Contributing
+Pull requests are always welcome as there are more functionalities to add. For major changes, please open an issue first to discuss what you would like to change.
