@@ -12,6 +12,7 @@ class CtlaserDriverNode : public CtlaserDriver
 {
     private:
         ros::NodeHandle nh;
+        std::string node_name;
         ros::Publisher temp_pub;
         ros::ServiceServer lights_srv;
         ros::ServiceServer set_epsilon_srv;
