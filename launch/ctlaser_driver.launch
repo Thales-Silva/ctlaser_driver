@@ -6,7 +6,7 @@
 	<arg name="target_lights" default="false"/>
 	<arg name="frequency" default="10"/>
 	<arg name="required" default="true"/>
-	<arg name="focal_distance" default="0.40"/>
+	<arg name="focal_distance" default="0.45"/>
 
     <node name="$(arg node_name)"
 	    pkg="ctlaser_driver"

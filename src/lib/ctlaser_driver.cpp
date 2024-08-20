@@ -42,6 +42,15 @@ void CtlaserDriver::createSocket()
     snd_timeout.tv_sec = 2;
     snd_timeout.tv_usec = 0;
     setsockopt(client_socket, SOL_SOCKET, SO_SNDTIMEO, &snd_timeout, sizeof(snd_timeout));
+
+    int opt = 1;
+    if (setsockopt(client_socket, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt)) < 0)
+        throw std::runtime_error("[ ERROR] setsockopt(SO_REUSEADDR) failed.");
+
+    linger lin;
+    lin.l_onoff = 1;
+    lin.l_linger = 0;
+    setsockopt(client_socket, SOL_SOCKET, SO_LINGER, (const char *)&lin, sizeof(lin));
 }
 
 bool CtlaserDriver::stablishConnection()
@@ -56,7 +65,7 @@ bool CtlaserDriver::stablishConnection()
             if (connect(client_socket, reinterpret_cast<sockaddr*>(&server_address), sizeof (server_address)) == -1)
             {
                 std::cerr <<  "[ ERROR] Connection failed. Retrying." << std::endl;
-                sleep(1);
+                std::this_thread::sleep_for(std::chrono::milliseconds(1000));
             }
             else
             {
